@@ -1,28 +1,29 @@
-#include "../lib/wiringPi.h"
+#include <wiringPi.h>
 #include "led_matrix.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-    // Initialize the wiringPi library
-    wiringPiSetup();
-
-    // Initialize the LED matrix
+int main() {
     init_led_matrix();
 
-    // Set the pixel at (0, 0) to red
-    set_pixel(0, 0, 255, 0, 0);
+    // Loop to create a simple effect
+//    for (int i = 0; i < WIDTH; i++) {
+//       for (int j = 0; j < HEIGHT; j++) {
+//            set_pixel(i, j, 255, 0, 0); // Set pixel to red
+//            usleep(100000); // Wait for 100 milliseconds
+//            show();
+//        }
+//    }
+//    usleep(500000); // Wait for half a second
 
-    // Set the pixel at (7, 7) to green
-    set_pixel(7, 7, 0, 255, 0);
 
-    // Show the pixels on the LED matrix
+
+    set_pixel(0,0,255,31,2);
     show();
-
-    // Clear the LED matrix
+    usleep(100000);
     clear();
+    show();
 
     return 0;
 }
